@@ -15,4 +15,4 @@ while(True):
     else:
         break
 
-print("Flag : " + flag)
+print(f"Flag : {flag}")

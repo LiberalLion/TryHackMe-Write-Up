@@ -29,11 +29,11 @@ print(directories)
 for directory in directories:
     output = ""
     ftp.dir(directory, get)
-    if len(output) > 0:
+    if output != "":
         subdir = cleandir(output)
         print(f'Directory {directory} contains {subdir}')
         break
-        
+
 for fname in subdir:
     output = ""
     print(f'Downloding {directory}/{fname}\n=================')

@@ -26,7 +26,10 @@ def task3(url):
     # Task 3
     for api_key in range(1, 100, 2):
         json = requests.get(f'{url}/api/{api_key}').json()
-        if((json['q'] != "Error. Key not valid!") and (json['q'] != "SANTA PROTECTION MECHANISM ACTIVATED.")):
+        if json['q'] not in [
+            "Error. Key not valid!",
+            "SANTA PROTECTION MECHANISM ACTIVATED.",
+        ]:
             print(f"api_key = {api_key}, {json['q']}")
             found = True
             break
@@ -37,6 +40,6 @@ def task3(url):
 ### Start scripting ###
 domain = "10.10.185.174"
 port = ""
-url = 'http://' + domain + ':' + port
+url = f'http://{domain}:{port}'
 
 task3(url)
